@@ -48,6 +48,7 @@ def generate_flat_table(n_days):
     df.index.name = 'HH'
     return df
 
+
 def generate_square_table(n_days):
     index = generate_square_index(n_days)
     data = np.round(np.random.rand(n_days, 48) * 100, 2)
@@ -78,6 +79,7 @@ def generate_square_index(n_days):
         freq="D"
     )
 
+
 def write_table(filename, df):
     if get_extension(filename) in ['xls', 'xlsx']:
         df.to_excel(filename)
@@ -96,4 +98,3 @@ if __name__ == "__main__":
     args = parse_args(sys.argv)
     table = generate_pandas_table(args.days, args.type)
     write_table(args.filename, table)
-    
